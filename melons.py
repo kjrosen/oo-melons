@@ -47,3 +47,18 @@ class InternationalMelonOrder(AbstractMelonOrder):
         """Return the country code."""
 
         return self.country_code
+
+
+class FedMelons(AbstractMelonOrder):
+    '''for the feds'''
+
+    tax = 0.0
+    shipping_type = "domestic"
+    passed = False
+
+    def mark_inspection(self, passed):
+
+        if passed == True:
+            self.passed = True
+
+        return self.passed
